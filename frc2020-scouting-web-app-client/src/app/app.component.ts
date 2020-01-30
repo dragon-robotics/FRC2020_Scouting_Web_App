@@ -1,4 +1,7 @@
 import { Component } from '@angular/core';
+import { shareReplay, map } from 'rxjs/operators';
+import { Observable } from 'rxjs';
+import { Breakpoints, BreakpointObserver } from '@angular/cdk/layout';
 
 @Component({
   selector: 'app-root',
@@ -6,5 +9,18 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'frc2020-scouting-web-app-client';
+  title = 'FRC 2020 Scouting App';
+
+  /*
+    This is listening to whether or not our viewport is in handset mode
+    using Breakpoint Observer. https://alligator.io/angular/breakpoints-angular-cdk/
+  */
+  isHandset$: Observable<boolean> = this.breakpointObserver
+    .observe(Breakpoints.Handset)
+    .pipe(
+      map(result => result.matches),
+      shareReplay()
+    );
+
+  constructor(private breakpointObserver: BreakpointObserver) { }
 }

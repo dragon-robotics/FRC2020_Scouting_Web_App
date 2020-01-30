@@ -26,6 +26,9 @@ import { NavigationExampleComponent } from './navigation-example/navigation-exam
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatListModule } from '@angular/material/list';
+import { PitScoutingFormComponent } from './pit-scouting-form/pit-scouting-form.component';
+import { MatchScoutingFormComponent } from './match-scouting-form/match-scouting-form.component';
+import { StatisticsDashboardComponent } from './statistics-dashboard/statistics-dashboard.component';
 
 @NgModule({
   declarations: [
@@ -34,7 +37,10 @@ import { MatListModule } from '@angular/material/list';
     DashboardExampleComponent,
     TableExampleComponent,
     TreeExampleComponent,
-    NavigationExampleComponent
+    NavigationExampleComponent,
+    PitScoutingFormComponent,
+    MatchScoutingFormComponent,
+    StatisticsDashboardComponent
   ],
   imports: [
     BrowserModule,
