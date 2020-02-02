@@ -1,1 +1,85 @@
-<p>pit-scouting-form works!</p>
+<mat-accordion multi="true">
+    <mat-expansion-panel expanded="true">
+        <mat-expansion-panel-header>
+            <mat-panel-title>
+                Team Information
+            </mat-panel-title>
+            <mat-panel-description>
+                Insert Team Information (Team #, Team Name, Pics, etc.)
+            </mat-panel-description>
+        </mat-expansion-panel-header>
+        
+        <!-- Select Event -->
+        <mat-form-field>
+            <mat-label>Event</mat-label>
+            <mat-select>
+                <mat-option value="event1">AZ North</mat-option>
+                <mat-option value="event2">AZ West</mat-option>
+                <mat-option value="event3">LA North</mat-option>
+                <mat-option value="event4">Del Mar</mat-option>
+            </mat-select>
+        </mat-form-field>
+        
+        <!-- Select Team Number -->
+        <mat-form-field>
+            <mat-label>Team Number</mat-label>
+            <mat-select>
+                <mat-option value="team1">6833</mat-option>
+                <mat-option value="team2">2375</mat-option>
+                <mat-option value="team3">842</mat-option>
+                <mat-option value="team4">1678</mat-option>
+            </mat-select>
+        </mat-form-field>
+        
+        <!-- Autopopulate team name once team number is selected -->
+        <mat-form-field>
+            <input matInput placeholder="Team Name" value="Dragon Robotics">
+        </mat-form-field>
+
+    </mat-expansion-panel>
+    <mat-expansion-panel expanded="true">
+        <mat-expansion-panel-header>
+        <mat-panel-title>
+            Robot Information
+        </mat-panel-title>
+        <mat-panel-description>
+            Insert Robot Information (Robot Mechanisms, Robot Picture, Pics, etc.)
+        </mat-panel-description>
+        </mat-expansion-panel-header>
+
+        <mat-card>
+            <mat-card-title>DriveTrain Mechanism</mat-card-title>
+        </mat-card>
+        
+        <mat-card>
+            <mat-card-title>Power Cell Interaction Mechanism</mat-card-title>
+            <mat-card-content>
+                <mat-radio-group aria-label="Do they have a power cell mechanism?">
+                    <mat-radio-button value="1">Yes</mat-radio-button>
+                    <mat-radio-button value="2">No</mat-radio-button>
+                </mat-radio-group>
+            </mat-card-content>
+        </mat-card>
+
+        <mat-card>
+            <mat-card-title>Climbing Mechanism</mat-card-title>
+            <mat-card-content>
+                <mat-radio-group aria-label="Do they have a climbing mechanism?">
+                <mat-radio-button value="1">Yes</mat-radio-button>
+                <mat-radio-button value="2">No</mat-radio-button>
+                </mat-radio-group>
+            </mat-card-content>
+        </mat-card>
+
+        <mat-card>
+            <mat-card-title>Control Panel Interaction Mechanism</mat-card-title>
+            <mat-card-content>
+              <mat-radio-group aria-label="Do they have a control panel mechanism?">
+                <mat-radio-button value="1">Yes</mat-radio-button>
+                <mat-radio-button value="2">No</mat-radio-button>
+              </mat-radio-group>
+            </mat-card-content>
+        </mat-card>
+
+    </mat-expansion-panel>
+</mat-accordion>

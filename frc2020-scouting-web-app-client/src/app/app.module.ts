@@ -26,6 +26,7 @@ import { NavigationExampleComponent } from './navigation-example/navigation-exam
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatListModule } from '@angular/material/list';
+import { MatExpansionModule } from '@angular/material/expansion';
 import { PitScoutingFormComponent } from './pit-scouting-form/pit-scouting-form.component';
 import { MatchScoutingFormComponent } from './match-scouting-form/match-scouting-form.component';
 import { StatisticsDashboardComponent } from './statistics-dashboard/statistics-dashboard.component';
@@ -62,7 +63,8 @@ import { StatisticsDashboardComponent } from './statistics-dashboard/statistics-
     MatTreeModule,
     MatToolbarModule,
     MatSidenavModule,
-    MatListModule
+    MatListModule,
+    MatExpansionModule
   ],
   providers: [],
   bootstrap: [AppComponent]
