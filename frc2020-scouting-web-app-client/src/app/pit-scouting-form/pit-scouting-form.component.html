@@ -49,6 +49,61 @@
 
         <mat-card>
             <mat-card-title>DriveTrain Mechanism</mat-card-title>
+            <mat-card-content>
+                <!-- Drivetrain -->
+                <mat-form-field>
+                    <mat-label>Drivetrain Type</mat-label>
+                    <mat-select>
+                        <mat-option *ngFor="let driveTrain of driveTrains" [value]="driveTrain">
+                            {{driveTrain}}
+                        </mat-option>
+                    </mat-select>
+                </mat-form-field>
+                <br/>
+
+                <!-- Gearbox -->
+                <mat-form-field>
+                    <mat-label>Gearbox</mat-label>
+                    <mat-select>
+                        <mat-option *ngFor="let gearbox of gearboxes" [value]="gearbox">
+                            {{gearbox}}
+                        </mat-option>
+                    </mat-select>
+                </mat-form-field>
+                <br/>
+
+                <!-- Motor -->
+                <mat-form-field>
+                    <mat-label>Motor</mat-label>
+                    <mat-select>
+                        <mat-option *ngFor="let motor of motors" [value]="motor">
+                            {{motor}}
+                        </mat-option>
+                    </mat-select>
+                </mat-form-field>
+                <mat-form-field>
+                    <input matInput placeholder="# of Motors">
+                </mat-form-field>
+                <br/>
+
+                <!-- Wheel -->
+                <mat-form-field>
+                    <mat-label>Wheel</mat-label>
+                    <mat-select>
+                        <mat-option *ngFor="let wheel of wheels" [value]="wheel">
+                            {{wheel}}
+                        </mat-option>
+                    </mat-select>
+                </mat-form-field>
+                <mat-form-field>
+                    <input matInput placeholder="# of Wheels">
+                </mat-form-field>
+                <br/>
+
+                <mat-form-field>
+                    <textarea matInput placeholder="Additional Details"></textarea>
+                </mat-form-field>
+            </mat-card-content>
         </mat-card>
         
         <mat-card>
