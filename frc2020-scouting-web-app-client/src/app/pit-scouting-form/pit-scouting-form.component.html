@@ -35,6 +35,9 @@
         <mat-form-field>
             <input matInput placeholder="Team Name" value="Dragon Robotics">
         </mat-form-field>
+        <br/>
+
+        <!-- Insert Team Picture -->
 
     </mat-expansion-panel>
     <mat-expansion-panel expanded="true">
@@ -63,7 +66,7 @@
 
                 <!-- Gearbox -->
                 <mat-form-field>
-                    <mat-label>Gearbox</mat-label>
+                    <mat-label>Gearbox Type</mat-label>
                     <mat-select>
                         <mat-option *ngFor="let gearbox of gearboxes" [value]="gearbox">
                             {{gearbox}}
@@ -74,7 +77,7 @@
 
                 <!-- Motor -->
                 <mat-form-field>
-                    <mat-label>Motor</mat-label>
+                    <mat-label>Motor Type</mat-label>
                     <mat-select>
                         <mat-option *ngFor="let motor of motors" [value]="motor">
                             {{motor}}
@@ -88,7 +91,7 @@
 
                 <!-- Wheel -->
                 <mat-form-field>
-                    <mat-label>Wheel</mat-label>
+                    <mat-label>Wheel Type</mat-label>
                     <mat-select>
                         <mat-option *ngFor="let wheel of wheels" [value]="wheel">
                             {{wheel}}
@@ -113,6 +116,45 @@
                     <mat-radio-button value="1">Yes</mat-radio-button>
                     <mat-radio-button value="2">No</mat-radio-button>
                 </mat-radio-group>
+                <br/>
+                <!-- Intake -->
+                <mat-card>
+                    <mat-card-title>Intake</mat-card-title>
+                    <mat-card-content>
+                        <mat-form-field>
+                            <mat-label>Intake Type</mat-label>
+                            <mat-select>
+                                <mat-option *ngFor="let intake of intakes" [value]="intake">
+                                    {{intake}}
+                                </mat-option>
+                            </mat-select>
+                        </mat-form-field>
+                        <br/>
+                        <mat-form-field>
+                            <textarea matInput placeholder="Description of Intake"></textarea>
+                        </mat-form-field>
+                        <!-- Insert picture of intake -->
+                    </mat-card-content>
+                </mat-card>
+                <!-- Indexer / Cargo Delivery System -->
+                <mat-card>
+                    <mat-card-title>Indexer / Cargo Delivery System</mat-card-title>
+                    <mat-card-content>
+                        <label id="power-cell-counter-radio-label">Power Cell Counter?</label><br/>
+                        <mat-radio-group aria-labelby="power-cell-counter-radio-label">
+                            <mat-radio-button value="1">Yes</mat-radio-button>
+                            <mat-radio-button value="2">No</mat-radio-button>
+                        </mat-radio-group>
+                        <br/>                 
+                    </mat-card-content>
+                </mat-card>
+                <!-- Shooter -->
+                <mat-card>
+                    <mat-card-title>Shooter</mat-card-title>
+                    <mat-card-content>
+
+                    </mat-card-content>
+                </mat-card>
             </mat-card-content>
         </mat-card>
 

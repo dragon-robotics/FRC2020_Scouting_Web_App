@@ -46,6 +46,17 @@ export class PitScoutingFormComponent implements OnInit {
     "Plaction"
   ];
 
+  intakes: string[] = [
+    "1. Ground intake, 1 power cell at a time",
+    "2. Ground intake, mutliple power cells at a time",
+    "3. High chute intake, 1 power cell at a time",
+    "4. High chute intake, multiple power cells at a time",
+    "5. 1 + 3",
+    "6. 1 + 4",
+    "7. 2 + 3",
+    "8. 2 + 4"
+  ];
+
   constructor() {}
 
   ngOnInit() {}
