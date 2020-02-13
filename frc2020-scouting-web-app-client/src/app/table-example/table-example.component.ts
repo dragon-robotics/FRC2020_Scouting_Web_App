@@ -10,9 +10,9 @@ import { TableExampleDataSource, TableExampleItem } from './table-example-dataso
   styleUrls: ['./table-example.component.css']
 })
 export class TableExampleComponent implements AfterViewInit, OnInit {
-  @ViewChild(MatPaginator, {static: false}) paginator: MatPaginator;
-  @ViewChild(MatSort, {static: false}) sort: MatSort;
-  @ViewChild(MatTable, {static: false}) table: MatTable<TableExampleItem>;
+  @ViewChild(MatPaginator) paginator: MatPaginator;
+  @ViewChild(MatSort) sort: MatSort;
+  @ViewChild(MatTable) table: MatTable<TableExampleItem>;
   dataSource: TableExampleDataSource;
 
   /** Columns displayed in the table. Columns IDs can be added, removed, or reordered. */
