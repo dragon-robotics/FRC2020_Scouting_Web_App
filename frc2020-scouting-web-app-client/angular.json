@@ -139,5 +139,8 @@
       }
     }
   },
-  "defaultProject": "frc2020-scouting-web-app-client"
+  "defaultProject": "frc2020-scouting-web-app-client",
+  "cli": {
+    "analytics": "d74247c4-d70d-4c00-abf8-f57214b49210"
+  }
 }
