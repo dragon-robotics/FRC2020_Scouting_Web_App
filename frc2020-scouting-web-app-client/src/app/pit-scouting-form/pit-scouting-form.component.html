@@ -8,29 +8,27 @@
                 Insert Team Information (Team #, Team Name, Pics, etc.)
             </mat-panel-description>
         </mat-expansion-panel-header>
-        
+
         <!-- Select Event -->
         <mat-form-field>
             <mat-label>Event</mat-label>
             <mat-select>
-                <mat-option value="event1">AZ North</mat-option>
-                <mat-option value="event2">AZ West</mat-option>
-                <mat-option value="event3">LA North</mat-option>
-                <mat-option value="event4">Del Mar</mat-option>
+                <mat-option *ngFor="let event of events" [value]="event">
+                  {{event}}
+                </mat-option>
             </mat-select>
         </mat-form-field>
-        
+
         <!-- Select Team Number -->
         <mat-form-field>
             <mat-label>Team Number</mat-label>
             <mat-select>
-                <mat-option value="team1">6833</mat-option>
-                <mat-option value="team2">2375</mat-option>
-                <mat-option value="team3">842</mat-option>
-                <mat-option value="team4">1678</mat-option>
+                <mat-option *ngFor="let team of teams" [value]="team">
+                  {{team}}
+                </mat-option>
             </mat-select>
         </mat-form-field>
-        
+
         <!-- Autopopulate team name once team number is selected -->
         <mat-form-field>
             <input matInput placeholder="Team Name" value="Dragon Robotics">
@@ -108,7 +106,7 @@
                 </mat-form-field>
             </mat-card-content>
         </mat-card>
-        
+
         <mat-card>
             <mat-card-title>Power Cell Interaction Mechanism</mat-card-title>
             <mat-card-content>
@@ -138,21 +136,40 @@
                 </mat-card>
                 <!-- Indexer / Cargo Delivery System -->
                 <mat-card>
-                    <mat-card-title>Indexer / Cargo Delivery System</mat-card-title>
+                    <mat-card-title>Indexer</mat-card-title>
                     <mat-card-content>
                         <label id="power-cell-counter-radio-label">Power Cell Counter?</label><br/>
                         <mat-radio-group aria-labelby="power-cell-counter-radio-label">
                             <mat-radio-button value="1">Yes</mat-radio-button>
                             <mat-radio-button value="2">No</mat-radio-button>
                         </mat-radio-group>
-                        <br/>                 
+                        <br/>
+                        <mat-form-field>
+                          <textarea matInput placeholder="Description of Indexer"></textarea>
+                        </mat-form-field>
+                        <!-- Insert picture of indexer -->
                     </mat-card-content>
                 </mat-card>
                 <!-- Shooter -->
                 <mat-card>
                     <mat-card-title>Shooter</mat-card-title>
                     <mat-card-content>
-
+                        <label id="high-low-goal-radio-label">High / Low Goal?</label><br />
+                        <mat-radio-group aria-labelby="power-cell-counter-radio-label">
+                          <mat-radio-button value="1">High</mat-radio-button>
+                          <mat-radio-button value="2">Low</mat-radio-button>
+                        </mat-radio-group>
+                        <br /><br />
+                        <label id="high-low-goal-radio-label">Single / Multiple Power Cell?</label><br />
+                        <mat-radio-group aria-labelby="power-cell-counter-radio-label">
+                          <mat-radio-button value="1">Single</mat-radio-button>
+                          <mat-radio-button value="2">Multiple</mat-radio-button>
+                        </mat-radio-group>
+                        <br />
+                        <mat-form-field>
+                          <textarea matInput placeholder="Description of Shooter"></textarea>
+                        </mat-form-field>
+                        <!-- Insert picture of shooter -->
                     </mat-card-content>
                 </mat-card>
             </mat-card-content>
@@ -162,9 +179,35 @@
             <mat-card-title>Climbing Mechanism</mat-card-title>
             <mat-card-content>
                 <mat-radio-group aria-label="Do they have a climbing mechanism?">
-                <mat-radio-button value="1">Yes</mat-radio-button>
-                <mat-radio-button value="2">No</mat-radio-button>
+                  <mat-radio-button value="1">Yes</mat-radio-button>
+                  <mat-radio-button value="2">No</mat-radio-button>
                 </mat-radio-group>
+
+                <mat-card>
+                  <mat-card-title>Deployment</mat-card-title>
+                  <mat-card-content></mat-card-content>
+                </mat-card>
+
+                <mat-card>
+                  <mat-card-title>Acquisition</mat-card-title>
+                  <mat-card-content></mat-card-content>
+                </mat-card>
+
+                <mat-card>
+                  <mat-card-title>Climb & Maintain Climb</mat-card-title>
+                  <mat-card-content></mat-card-content>
+                </mat-card>
+
+                <mat-card>
+                  <mat-card-title>Auto-balancing</mat-card-title>
+                  <mat-card-content></mat-card-content>
+                </mat-card>
+
+                <mat-card>
+                  <mat-card-title>Buddy Climb</mat-card-title>
+                  <mat-card-content></mat-card-content>
+                </mat-card>
+
             </mat-card-content>
         </mat-card>
 
@@ -176,6 +219,34 @@
                 <mat-radio-button value="2">No</mat-radio-button>
               </mat-radio-group>
             </mat-card-content>
+
+            <mat-card>
+              <mat-card-title>Rotation</mat-card-title>
+              <mat-card-content></mat-card-content>
+            </mat-card>
+
+            <mat-card>
+              <mat-card-title>Color Sensing</mat-card-title>
+              <mat-card-content></mat-card-content>
+            </mat-card>
+        </mat-card>
+
+        <mat-card>
+          <mat-card-title>Additional Information</mat-card-title>
+          <mat-card-content>
+            <mat-form-field>
+              <input matInput placeholder="Robot Length" value="">
+            </mat-form-field>
+            <mat-form-field>
+              <input matInput placeholder="Robot Width" value="">
+            </mat-form-field>
+            <mat-form-field>
+              <input matInput placeholder="Robot Height" value="">
+            </mat-form-field>
+            <mat-form-field>
+              <input matInput placeholder="Robot Weight" value="">
+            </mat-form-field>
+          </mat-card-content>
         </mat-card>
 
     </mat-expansion-panel>

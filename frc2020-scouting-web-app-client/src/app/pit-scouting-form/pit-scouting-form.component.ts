@@ -6,6 +6,21 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ["./pit-scouting-form.component.css"]
 })
 export class PitScoutingFormComponent implements OnInit {
+
+  events: string[] = [
+    "AZ North",
+    "AZ West",
+    "LA North",
+    "Del Mar",
+  ];
+
+  teams: number[] = [
+    6833,
+    2375,
+    842,
+    1678
+  ];
+
   driveTrains: string[] = [
     "Tank",
     "Mecanum",
@@ -56,6 +71,8 @@ export class PitScoutingFormComponent implements OnInit {
     "7. 2 + 3",
     "8. 2 + 4"
   ];
+
+
 
   constructor() {}
 
