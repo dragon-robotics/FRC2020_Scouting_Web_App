@@ -185,27 +185,62 @@
 
                 <mat-card>
                   <mat-card-title>Deployment</mat-card-title>
-                  <mat-card-content></mat-card-content>
+                  <mat-card-content>
+                    <mat-form-field>
+                      <textarea matInput placeholder="Description of Deployment"></textarea>
+                    </mat-form-field>
+                    <!-- Insert picture of deployment mechanism -->
+                  </mat-card-content>
                 </mat-card>
 
                 <mat-card>
                   <mat-card-title>Acquisition</mat-card-title>
-                  <mat-card-content></mat-card-content>
+                  <mat-card-content>
+                    <mat-form-field>
+                      <textarea matInput placeholder="Description of Acquisition"></textarea>
+                    </mat-form-field>
+                    <!-- Insert picture of acquisition mechanism -->
+                  </mat-card-content>
                 </mat-card>
 
                 <mat-card>
                   <mat-card-title>Climb & Maintain Climb</mat-card-title>
-                  <mat-card-content></mat-card-content>
+                  <mat-card-content>
+                    <mat-form-field>
+                      <textarea matInput placeholder="Description of Climber"></textarea>
+                    </mat-form-field>
+                    <!-- Insert picture of climber mechanism -->
+                  </mat-card-content>
                 </mat-card>
 
                 <mat-card>
                   <mat-card-title>Auto-balancing</mat-card-title>
-                  <mat-card-content></mat-card-content>
+                  <mat-card-content>
+                    <mat-radio-group aria-label="Do they have an auto-balancing mechanism?">
+                      <mat-radio-button value="1">Yes</mat-radio-button>
+                      <mat-radio-button value="2">No</mat-radio-button>
+                    </mat-radio-group>
+                    <br/>
+                    <mat-form-field>
+                      <textarea matInput placeholder="Description of auto-balancer"></textarea>
+                    </mat-form-field>
+                    <!-- Insert picture of auto-balancing mechanism -->
+                  </mat-card-content>
                 </mat-card>
 
                 <mat-card>
                   <mat-card-title>Buddy Climb</mat-card-title>
-                  <mat-card-content></mat-card-content>
+                  <mat-card-content>
+                    <mat-radio-group aria-label="Do they have an buddy-climb mechanism?">
+                      <mat-radio-button value="1">Yes</mat-radio-button>
+                      <mat-radio-button value="2">No</mat-radio-button>
+                    </mat-radio-group>
+                    <br />
+                    <mat-form-field>
+                      <textarea matInput placeholder="Description of buddy climb"></textarea>
+                    </mat-form-field>
+                    <!-- Insert picture of buddy climber mechanism -->
+                  </mat-card-content>
                 </mat-card>
 
             </mat-card-content>
@@ -222,12 +257,31 @@
 
             <mat-card>
               <mat-card-title>Rotation</mat-card-title>
-              <mat-card-content></mat-card-content>
+              <mat-card-content>
+                <mat-form-field>
+                  <input matInput placeholder="Rotation Speed" value="">
+                </mat-form-field>
+                <br />
+                <mat-form-field>
+                  <textarea matInput placeholder="Description of rotator"></textarea>
+                </mat-form-field>
+                <!-- Insert picture of rotation mechanism -->
+              </mat-card-content>
             </mat-card>
 
             <mat-card>
               <mat-card-title>Color Sensing</mat-card-title>
-              <mat-card-content></mat-card-content>
+              <mat-card-content>
+                <mat-radio-group aria-label="Do they have a color sensor mechanism?">
+                  <mat-radio-button value="1">Yes</mat-radio-button>
+                  <mat-radio-button value="2">No</mat-radio-button>
+                </mat-radio-group>
+                <br />
+                <mat-form-field>
+                  <textarea matInput placeholder="Description of color sensor"></textarea>
+                </mat-form-field>
+                <!-- Insert picture of color sensor mechanism -->
+              </mat-card-content>
             </mat-card>
         </mat-card>
 

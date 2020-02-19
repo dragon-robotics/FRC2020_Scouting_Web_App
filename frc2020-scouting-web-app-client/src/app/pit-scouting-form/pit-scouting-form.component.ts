@@ -72,8 +72,6 @@ export class PitScoutingFormComponent implements OnInit {
     "8. 2 + 4"
   ];
 
-
-
   constructor() {}
 
   ngOnInit() {}
