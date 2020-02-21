@@ -81,7 +81,7 @@ router.get("/teamMatchEventInfo/:eventID/:teamID", function(req, res) {
       })
       .sortBy(function(unsortedMatches) {
         return (
-          order[unsortedMatches.split(" ")[0]] + +unsortedMatches.split(" ")[1]
+          order[unsortedMatches.split(" ")[0]] + parseInt(unsortedMatches.split(" ")[1])
         );
       })
       .value();
@@ -164,7 +164,7 @@ router.get("/getMatchAndTeamInfo/:eventID/", function(req, res) {
       })
       .sortBy(function(unsortedMatches) {
         var match = _.head(_.keysIn(unsortedMatches));
-        return order[match.split(" ")[0]] + +match.split(" ")[1];
+        return order[match.split(" ")[0]] + parseInt(match.split(" ")[1]);
       })
       .reduce(function(result, value, key) {
         return _.merge(result, value);
