@@ -103,6 +103,7 @@ router.get("/getMatchAndTeamInfo/:eventID/", function(req, res) {
         "dS9knumpOPRZJkI1FvSCSYhdnIj9dk2mfpqPMb50JbCQc9roaG9Hl3oZKTRYYOe0"
     }
   }).then(function(result) {
+    
     var order = {
       Qual: 1,
       "Elimination-Finals": 500,

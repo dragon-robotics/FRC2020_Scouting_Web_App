@@ -61,6 +61,8 @@ export class PitScoutingFormComponent implements OnInit {
     "Plaction"
   ];
 
+  /* Intake/Indexer/Shooter mechanism */
+
   intakes: string[] = [
     "1. Ground intake, 1 power cell at a time",
     "2. Ground intake, mutliple power cells at a time",
@@ -70,6 +72,39 @@ export class PitScoutingFormComponent implements OnInit {
     "6. 1 + 4",
     "7. 2 + 3",
     "8. 2 + 4"
+  ];
+
+  indexers: string[] = [
+    "Spin-dexer",
+    "Conveyor",
+    "Dump Truck",
+    "Others"
+  ];
+
+  /* Climber mechanism */
+  deployments: string[] = [
+    "Elevator",
+    "Piston",
+    "4-bar",
+    "Scissor-Lift",
+    "Others"
+  ];
+
+  acquisitions: string [] = [
+    "Single Hook",
+    "Dual Hooks",
+    "Multi Hooks",
+    "Grappling Hook",
+    "Carabiner",
+    "Others"
+  ];
+
+  climbers: string[] = [
+    "Winch",
+    "Elevator",
+    "Scissor-Lift",
+    "4-bar",
+    "Others"
   ];
 
   constructor() {}
