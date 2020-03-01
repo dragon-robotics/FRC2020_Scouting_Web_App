@@ -1,1 +1,64 @@
-<p>match-scouting-form works!</p>
+<mat-accordion multi="true">
+    <mat-expansion-panel expanded="true">
+        <mat-expansion-panel-header>
+            <mat-panel-title>
+                Match Information
+            </mat-panel-title>
+            <mat-panel-description>
+                Insert Match Information 
+            </mat-panel-description>
+        </mat-expansion-panel-header>
+
+        <!-- Select Event -->
+        <mat-form-field>
+            <mat-label>Event</mat-label>
+            <mat-select>
+                <mat-option *ngFor="let event of events" [value]="event">
+                  {{event}}
+                </mat-option>
+            </mat-select>
+        </mat-form-field>
+
+        <!-- Select Team Number -->
+        <mat-form-field>
+            <mat-label>Team Number</mat-label>
+            <mat-select>
+                <mat-option *ngFor="let team of teams" [value]="team">
+                  {{team}}
+                </mat-option>
+            </mat-select>
+        </mat-form-field>
+
+        <!-- Select Match Number -->
+        <mat-form-field>
+            <mat-label>Match Number</mat-label>
+            <mat-select>
+                <mat-option *ngFor="let match of matches" [value]="match">
+                  {{match}}
+                </mat-option>
+            </mat-select>
+        </mat-form-field>
+    </mat-expansion-panel>
+
+    <mat-expansion-panel expanded="true">
+        <mat-expansion-panel-header>
+            <mat-panel-title>
+                Autonomous
+            </mat-panel-title>
+            <mat-panel-description>
+                Insert Autonomous Scouting Information 
+            </mat-panel-description>
+        </mat-expansion-panel-header>
+    </mat-expansion-panel>
+    
+    <mat-expansion-panel expanded="true">
+        <mat-expansion-panel-header>
+            <mat-panel-title>
+                Tele-Op
+            </mat-panel-title>
+            <mat-panel-description>
+                Insert Tele-Op Information 
+            </mat-panel-description>
+        </mat-expansion-panel-header>
+    </mat-expansion-panel>
+</mat-accordion>

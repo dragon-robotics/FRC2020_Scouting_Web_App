@@ -7,6 +7,26 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MatchScoutingFormComponent implements OnInit {
 
+  events: string[] = [
+    "AZ North",
+    "AZ West",
+    "LA North",
+    "Del Mar",
+  ];
+
+  teams: number[] = [
+    6833,
+    2375,
+    842,
+    1678
+  ];
+  
+  matches: number[] = [
+    1,
+    2,
+    3,
+  ];
+
   constructor() { }
 
   ngOnInit() {
