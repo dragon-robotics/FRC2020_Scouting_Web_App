@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormBuilder, Validators } from '@angular/forms';
 
 @Component({
   selector: "app-pit-scouting-form",
@@ -6,20 +7,9 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ["./pit-scouting-form.component.css"]
 })
 export class PitScoutingFormComponent implements OnInit {
+  events: string[] = ["AZ North", "AZ West", "LA North", "Del Mar"];
 
-  events: string[] = [
-    "AZ North",
-    "AZ West",
-    "LA North",
-    "Del Mar",
-  ];
-
-  teams: number[] = [
-    6833,
-    2375,
-    842,
-    1678
-  ];
+  teams: number[] = [6833, 2375, 842, 1678];
 
   driveTrains: string[] = [
     "Tank",
@@ -74,12 +64,7 @@ export class PitScoutingFormComponent implements OnInit {
     "8. 2 + 4"
   ];
 
-  indexers: string[] = [
-    "Spin-dexer",
-    "Conveyor",
-    "Dump Truck",
-    "Others"
-  ];
+  indexers: string[] = ["Spin-dexer", "Conveyor", "Dump Truck", "Others"];
 
   /* Climber mechanism */
   deployments: string[] = [
@@ -90,7 +75,7 @@ export class PitScoutingFormComponent implements OnInit {
     "Others"
   ];
 
-  acquisitions: string [] = [
+  acquisitions: string[] = [
     "Single Hook",
     "Dual Hooks",
     "Multi Hooks",
@@ -99,15 +84,30 @@ export class PitScoutingFormComponent implements OnInit {
     "Others"
   ];
 
-  climbers: string[] = [
-    "Winch",
-    "Elevator",
-    "Scissor-Lift",
-    "4-bar",
-    "Others"
-  ];
+  climbers: string[] = ["Winch", "Elevator", "Scissor-Lift", "4-bar", "Others"];
 
-  constructor() {}
+  constructor(private fb: FormBuilder) {}
 
   ngOnInit() {}
+
+  /* Full Robot Picture */
+  onUploadRobotPicClick() {}
+
+  /* Drivetrain Pictures */
+  onUploadDrivetrainPicClick() {}
+
+  /* Intake/Indexer/Shooter Pictures */
+  onUploadIntakePicClick() {}
+  onUploadIndexerPicClick() {}
+  onUploadShooterPicClick() {}
+
+  /* Climber Pictures */
+  onUploadDeploymentPicClick() {}
+  onUploadAcquisitionPicClick() {}
+  onUploadClimberPicClick() {}
+  onUploadAutoBalancerPicClick() {}
+  onUploadBuddyClimbPicClick() {}
+
+  /* Control Panel Pictures */
+  onUploadRotatorPicClick() {}
 }

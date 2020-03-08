@@ -1,337 +1,411 @@
 <mat-accordion multi="true">
-    <mat-expansion-panel expanded="true">
-        <mat-expansion-panel-header>
-            <mat-panel-title>
-                Team Information
-            </mat-panel-title>
-            <mat-panel-description>
-                Insert Team Information (Team #, Team Name, Pics, etc.)
-            </mat-panel-description>
-        </mat-expansion-panel-header>
+  <mat-expansion-panel expanded="true">
+    <mat-expansion-panel-header>
+      <mat-panel-title>
+        Team Information
+      </mat-panel-title>
+      <mat-panel-description>
+        Insert Team Information (Team #, Team Name, Pics, etc.)
+      </mat-panel-description>
+    </mat-expansion-panel-header>
 
-        <!-- Select Event -->
+    <!-- Select Event -->
+    <mat-form-field>
+      <mat-label>Event</mat-label>
+      <mat-select>
+        <mat-option *ngFor="let event of events" [value]="event">
+          {{ event }}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <!-- Select Team Number -->
+    <mat-form-field>
+      <mat-label>Team Number</mat-label>
+      <mat-select>
+        <mat-option *ngFor="let team of teams" [value]="team">
+          {{ team }}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <!-- Autopopulate team name once team number is selected -->
+    <mat-form-field>
+      <input matInput placeholder="Team Name" value="Dragon Robotics" />
+    </mat-form-field>
+    <br />
+
+    <!-- Insert Full Robot Pictures -->
+    <button mat-raised-button color="primary" (click)="onUploadRobotPicClick()">
+      <mat-icon>file_upload</mat-icon>
+      Upload Robot Pictures
+    </button>
+  </mat-expansion-panel>
+  <mat-expansion-panel expanded="true">
+    <mat-expansion-panel-header>
+      <mat-panel-title>
+        Robot Information
+      </mat-panel-title>
+      <mat-panel-description>
+        Insert Robot Information (Robot Mechanisms and Robot Mechanism Pictures)
+      </mat-panel-description>
+    </mat-expansion-panel-header>
+
+    <mat-card>
+      <mat-card-title>DriveTrain Mechanism</mat-card-title>
+      <mat-card-content>
+        <!-- Drivetrain -->
         <mat-form-field>
-            <mat-label>Event</mat-label>
-            <mat-select>
-                <mat-option *ngFor="let event of events" [value]="event">
-                  {{event}}
-                </mat-option>
-            </mat-select>
+          <mat-label>Drivetrain Type</mat-label>
+          <mat-select>
+            <mat-option *ngFor="let driveTrain of driveTrains" [value]="driveTrain">
+              {{ driveTrain }}
+            </mat-option>
+          </mat-select>
         </mat-form-field>
+        <br />
 
-        <!-- Select Team Number -->
+        <!-- Gearbox -->
         <mat-form-field>
-            <mat-label>Team Number</mat-label>
-            <mat-select>
-                <mat-option *ngFor="let team of teams" [value]="team">
-                  {{team}}
-                </mat-option>
-            </mat-select>
+          <mat-label>Gearbox Type</mat-label>
+          <mat-select>
+            <mat-option *ngFor="let gearbox of gearboxes" [value]="gearbox">
+              {{ gearbox }}
+            </mat-option>
+          </mat-select>
         </mat-form-field>
+        <br />
 
-        <!-- Autopopulate team name once team number is selected -->
+        <!-- Motor -->
         <mat-form-field>
-            <input matInput placeholder="Team Name" value="Dragon Robotics">
+          <mat-label>Motor Type</mat-label>
+          <mat-select>
+            <mat-option *ngFor="let motor of motors" [value]="motor">
+              {{ motor }}
+            </mat-option>
+          </mat-select>
         </mat-form-field>
-        <br/>
+        <mat-form-field>
+          <input matInput placeholder="# of Motors" />
+        </mat-form-field>
+        <br />
 
-        <!-- Insert Team Picture -->
+        <!-- Wheel -->
+        <mat-form-field>
+          <mat-label>Wheel Type</mat-label>
+          <mat-select>
+            <mat-option *ngFor="let wheel of wheels" [value]="wheel">
+              {{ wheel }}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+        <mat-form-field>
+          <input matInput placeholder="# of Wheels" />
+        </mat-form-field>
+        <br />
 
-    </mat-expansion-panel>
-    <mat-expansion-panel expanded="true">
-        <mat-expansion-panel-header>
-        <mat-panel-title>
-            Robot Information
-        </mat-panel-title>
-        <mat-panel-description>
-            Insert Robot Information (Robot Mechanisms, Robot Picture, Pics, etc.)
-        </mat-panel-description>
-        </mat-expansion-panel-header>
+        <mat-form-field>
+          <textarea matInput placeholder="Additional Details"></textarea>
+        </mat-form-field>
+      </mat-card-content>
 
+      <!-- Insert pictures of drivetrain -->
+      <mat-card-actions>
+        <button mat-raised-button color="primary" (click)="onUploadDrivetrainPicClick()">
+          <mat-icon>file_upload</mat-icon>
+          Upload Drivetrain Pictures
+        </button>
+      </mat-card-actions>
+    </mat-card>
+
+    <mat-card>
+      <mat-card-title>Power Cell Interaction Mechanism</mat-card-title>
+      <mat-card-content>
+        <mat-radio-group aria-label="Do they have a power cell mechanism?">
+          <mat-radio-button value="1">Yes</mat-radio-button>
+          <mat-radio-button value="2">No</mat-radio-button>
+        </mat-radio-group>
+        <br />
+        <!-- Intake -->
         <mat-card>
-            <mat-card-title>DriveTrain Mechanism</mat-card-title>
-            <mat-card-content>
-                <!-- Drivetrain -->
-                <mat-form-field>
-                    <mat-label>Drivetrain Type</mat-label>
-                    <mat-select>
-                        <mat-option *ngFor="let driveTrain of driveTrains" [value]="driveTrain">
-                            {{driveTrain}}
-                        </mat-option>
-                    </mat-select>
-                </mat-form-field>
-                <br/>
-
-                <!-- Gearbox -->
-                <mat-form-field>
-                    <mat-label>Gearbox Type</mat-label>
-                    <mat-select>
-                        <mat-option *ngFor="let gearbox of gearboxes" [value]="gearbox">
-                            {{gearbox}}
-                        </mat-option>
-                    </mat-select>
-                </mat-form-field>
-                <br/>
-
-                <!-- Motor -->
-                <mat-form-field>
-                    <mat-label>Motor Type</mat-label>
-                    <mat-select>
-                        <mat-option *ngFor="let motor of motors" [value]="motor">
-                            {{motor}}
-                        </mat-option>
-                    </mat-select>
-                </mat-form-field>
-                <mat-form-field>
-                    <input matInput placeholder="# of Motors">
-                </mat-form-field>
-                <br/>
-
-                <!-- Wheel -->
-                <mat-form-field>
-                    <mat-label>Wheel Type</mat-label>
-                    <mat-select>
-                        <mat-option *ngFor="let wheel of wheels" [value]="wheel">
-                            {{wheel}}
-                        </mat-option>
-                    </mat-select>
-                </mat-form-field>
-                <mat-form-field>
-                    <input matInput placeholder="# of Wheels">
-                </mat-form-field>
-                <br/>
-
-                <mat-form-field>
-                    <textarea matInput placeholder="Additional Details"></textarea>
-                </mat-form-field>
-            </mat-card-content>
-        </mat-card>
-
-        <mat-card>
-            <mat-card-title>Power Cell Interaction Mechanism</mat-card-title>
-            <mat-card-content>
-                <mat-radio-group aria-label="Do they have a power cell mechanism?">
-                    <mat-radio-button value="1">Yes</mat-radio-button>
-                    <mat-radio-button value="2">No</mat-radio-button>
-                </mat-radio-group>
-                <br/>
-                <!-- Intake -->
-                <mat-card>
-                    <mat-card-title>Intake</mat-card-title>
-                    <mat-card-content>
-                        <mat-form-field>
-                            <mat-label>Intake Type</mat-label>
-                            <mat-select>
-                                <mat-option *ngFor="let intake of intakes" [value]="intake">
-                                    {{intake}}
-                                </mat-option>
-                            </mat-select>
-                        </mat-form-field>
-                        <br/>
-                        <mat-form-field>
-                            <textarea matInput placeholder="Description of Intake"></textarea>
-                        </mat-form-field>
-                        <!-- Insert picture of intake -->
-                    </mat-card-content>
-                </mat-card>
-                <!-- Indexer / Cargo Delivery System -->
-                <mat-card>
-                    <mat-card-title>Indexer</mat-card-title>
-                    <mat-card-content>
-                      <mat-form-field>
-                        <mat-select>
-                          <mat-option *ngFor="let indexer of indexers" [value]="indexer">
-                            {{indexer}}
-                          </mat-option>
-                        </mat-select>
-                        </mat-form-field>
-                        <label id="power-cell-counter-radio-label">Power Cell Counter?</label><br/>
-                        <mat-radio-group aria-labelby="power-cell-counter-radio-label">
-                            <mat-radio-button value="1">Yes</mat-radio-button>
-                            <mat-radio-button value="2">No</mat-radio-button>
-                        </mat-radio-group>
-                        <br/>
-                        <mat-form-field>
-                          <textarea matInput placeholder="Description of Indexer"></textarea>
-                        </mat-form-field>
-                        <!-- Insert picture of indexer -->
-                    </mat-card-content>
-                </mat-card>
-                <!-- Shooter -->
-                <mat-card>
-                    <mat-card-title>Shooter</mat-card-title>
-                    <mat-card-content>
-                        <label id="high-low-goal-radio-label">High / Low Goal?</label><br />
-                        <mat-radio-group aria-labelby="high-low-both-goal-radio-label">
-                          <mat-radio-button value="1">High</mat-radio-button>
-                          <mat-radio-button value="2">Low</mat-radio-button>
-                          <mat-radio-button value="3">Both</mat-radio-button>
-                        </mat-radio-group>
-                        <br /><br />
-                        <label id="single-multiple-power-cell-radio-label">Single / Multiple Power Cell?</label><br />
-                        <mat-radio-group aria-labelby="single-multiple-power-cell-radio-label">
-                          <mat-radio-button value="1">Single</mat-radio-button>
-                          <mat-radio-button value="2">Multiple</mat-radio-button>
-                        </mat-radio-group>
-                        <br />
-                        <mat-form-field>
-                          <textarea matInput placeholder="Description of Shooter"></textarea>
-                        </mat-form-field>
-                        <!-- Insert picture of shooter -->
-                    </mat-card-content>
-                </mat-card>
-            </mat-card-content>
-        </mat-card>
-
-        <mat-card>
-            <mat-card-title>Climbing Mechanism</mat-card-title>
-            <mat-card-content>
-                <mat-radio-group aria-label="Do they have a climbing mechanism?">
-                  <mat-radio-button value="1">Yes</mat-radio-button>
-                  <mat-radio-button value="2">No</mat-radio-button>
-                </mat-radio-group>
-
-                <mat-card>
-                  <mat-card-title>Deployment</mat-card-title>
-                  <mat-card-content>
-                    <mat-form-field>
-                      <mat-label>Deployment Type</mat-label>
-                      <mat-select>
-                        <mat-option *ngFor="let deployment of deployments" [value]="deployment">
-                          {{deployment}}
-                        </mat-option>
-                      </mat-select>
-                    </mat-form-field>
-                    <br/>
-                    <mat-form-field>
-                      <textarea matInput placeholder="Description of Deployment"></textarea>
-                    </mat-form-field>
-                    <!-- Insert picture of deployment mechanism -->
-                  </mat-card-content>
-                </mat-card>
-
-                <mat-card>
-                  <mat-card-title>Acquisition</mat-card-title>
-                  <mat-card-content>
-                    <mat-form-field>
-                      <mat-label>Acquisition Type</mat-label>
-                      <mat-select>
-                        <mat-option *ngFor="let acquisition of acquisitions" [value]="acquisition">
-                          {{acquisition}}
-                        </mat-option>
-                      </mat-select>
-                    </mat-form-field>
-                    <br/>
-                    <mat-form-field>
-                      <textarea matInput placeholder="Description of Acquisition"></textarea>
-                    </mat-form-field>
-                    <!-- Insert picture of acquisition mechanism -->
-                  </mat-card-content>
-                </mat-card>
-
-                <mat-card>
-                  <mat-card-title>Climb & Maintain Climb</mat-card-title>
-                  <mat-card-content>
-                    <mat-form-field>
-                      <mat-label>Climber Type</mat-label>
-                      <mat-select>
-                        <mat-option *ngFor="let climber of climbers" [value]="climber">
-                          {{climber}}
-                        </mat-option>
-                      </mat-select>
-                    </mat-form-field>
-                    <br/>
-                    <mat-form-field>
-                      <textarea matInput placeholder="Description of Climber"></textarea>
-                    </mat-form-field>
-                    <!-- Insert picture of climber mechanism -->
-                  </mat-card-content>
-                </mat-card>
-
-                <mat-card>
-                  <mat-card-title>Auto-balancer</mat-card-title>
-                  <mat-card-content>
-                    <mat-radio-group aria-label="Do they have an auto-balancing mechanism?">
-                      <mat-radio-button value="1">Yes</mat-radio-button>
-                      <mat-radio-button value="2">No</mat-radio-button>
-                    </mat-radio-group>
-                    <br/>
-                    <mat-form-field>
-                      <textarea matInput placeholder="Description of auto-balancer"></textarea>
-                    </mat-form-field>
-                    <!-- Insert picture of auto-balancing mechanism -->
-                  </mat-card-content>
-                </mat-card>
-
-                <mat-card>
-                  <mat-card-title>Buddy Climb</mat-card-title>
-                  <mat-card-content>
-
-                    <mat-radio-group aria-label="Do they have an buddy-climb mechanism?">
-                      <mat-radio-button value="1">Yes</mat-radio-button>
-                      <mat-radio-button value="2">No</mat-radio-button>
-                    </mat-radio-group>
-                    <br/><br/>
-                    <label id="single-double-buddy-climb-radio-label">Single / Double Buddy Climb?</label><br />
-                    <mat-radio-group aria-labelby="single-multiple-power-cell-radio-label">
-                      <mat-radio-button value="1">Single</mat-radio-button>
-                      <mat-radio-button value="2">Double</mat-radio-button>
-                    </mat-radio-group>
-                    <br />
-                    <mat-form-field>
-                      <textarea matInput placeholder="Description of buddy climb"></textarea>
-                    </mat-form-field>
-                    <!-- Insert picture of buddy climber mechanism -->
-                  </mat-card-content>
-                </mat-card>
-
-            </mat-card-content>
-        </mat-card>
-
-        <mat-card>
-            <mat-card-title>Control Panel Interaction Mechanism</mat-card-title>
-            <mat-card-content>
-              <mat-radio-group aria-label="Do they have a control panel mechanism?">
-                <mat-radio-button value="1">Yes</mat-radio-button>
-                <mat-radio-button value="2">No</mat-radio-button>
-              </mat-radio-group>
-            </mat-card-content>
-
-            <mat-card>
-              <mat-card-title>Rotator</mat-card-title>
-              <mat-card-content>
-                <mat-form-field>
-                  <input matInput placeholder="Rotation Speed (RPM)" value="">
-                </mat-form-field>
-                <br />
-                <label id="color-sensor-radio-label">Color Sensor?</label><br />
-                <mat-radio-group aria-labelby="color-sensor-radio-label">
-                  <mat-radio-button value="1">Yes</mat-radio-button>
-                  <mat-radio-button value="2">No</mat-radio-button>
-                </mat-radio-group>
-                <br />
-                <mat-form-field>
-                  <textarea matInput placeholder="Description of rotator"></textarea>
-                </mat-form-field>
-                <!-- Insert picture of rotation mechanism -->
-              </mat-card-content>
-            </mat-card>
-        </mat-card>
-
-        <mat-card>
-          <mat-card-title>Additional Information</mat-card-title>
+          <mat-card-title>Intake</mat-card-title>
           <mat-card-content>
             <mat-form-field>
-              <input matInput placeholder="Robot Length (inches)" value="">
+              <mat-label>Intake Type</mat-label>
+              <mat-select>
+                <mat-option *ngFor="let intake of intakes" [value]="intake">
+                  {{ intake }}
+                </mat-option>
+              </mat-select>
             </mat-form-field>
+            <br />
             <mat-form-field>
-              <input matInput placeholder="Robot Width (inches)" value="">
-            </mat-form-field>
-            <mat-form-field>
-              <input matInput placeholder="Robot Height (inches)" value="">
+              <textarea matInput placeholder="Description of Intake"></textarea>
             </mat-form-field>
           </mat-card-content>
+
+          <!-- Insert pictures of intake -->
+          <mat-card-actions>
+            <button mat-raised-button color="primary" (click)="onUploadIntakePicClick()">
+              <mat-icon>file_upload</mat-icon>
+              Upload Intake Pictures
+            </button>
+          </mat-card-actions>
+        </mat-card>
+        <!-- Indexer / Cargo Delivery System -->
+        <mat-card>
+          <mat-card-title>Indexer</mat-card-title>
+          <mat-card-content>
+            <mat-form-field>
+              <mat-select>
+                <mat-option *ngFor="let indexer of indexers" [value]="indexer">
+                  {{ indexer }}
+                </mat-option>
+              </mat-select>
+            </mat-form-field>
+            <br />
+            <label id="power-cell-counter-radio-label">Power Cell Counter?</label><br />
+            <mat-radio-group aria-labelby="power-cell-counter-radio-label">
+              <mat-radio-button value="1">Yes</mat-radio-button>
+              <mat-radio-button value="2">No</mat-radio-button>
+            </mat-radio-group>
+            <br />
+            <mat-form-field>
+              <textarea matInput placeholder="Description of Indexer"></textarea>
+            </mat-form-field>
+          </mat-card-content>
+
+          <!-- Insert pictures of indexer -->
+          <mat-card-actions>
+            <button mat-raised-button color="primary" (click)="onUploadIndexerPicClick()">
+              <mat-icon>file_upload</mat-icon>
+              Upload Indexer Pictures
+            </button>
+          </mat-card-actions>
+        </mat-card>
+        <!-- Shooter -->
+        <mat-card>
+          <mat-card-title>Shooter</mat-card-title>
+          <mat-card-content>
+            <label id="high-low-goal-radio-label">High / Low Goal?</label><br />
+            <mat-radio-group aria-labelby="high-low-both-goal-radio-label">
+              <mat-radio-button value="1">High</mat-radio-button>
+              <mat-radio-button value="2">Low</mat-radio-button>
+              <mat-radio-button value="3">Both</mat-radio-button>
+            </mat-radio-group>
+            <br /><br />
+            <label id="single-multiple-power-cell-radio-label">Single / Multiple Power Cell?</label><br />
+            <mat-radio-group aria-labelby="single-multiple-power-cell-radio-label">
+              <mat-radio-button value="1">Single</mat-radio-button>
+              <mat-radio-button value="2">Multiple</mat-radio-button>
+            </mat-radio-group>
+            <br />
+            <mat-form-field>
+              <textarea matInput placeholder="Description of Shooter"></textarea>
+            </mat-form-field>
+          </mat-card-content>
+
+          <!-- Insert pictures of shooter -->
+          <mat-card-actions>
+            <button mat-raised-button color="primary" (click)="onUploadShooterPicClick()">
+              <mat-icon>file_upload</mat-icon>
+              Upload Shooter Pictures
+            </button>
+          </mat-card-actions>
+        </mat-card>
+      </mat-card-content>
+    </mat-card>
+
+    <mat-card>
+      <mat-card-title>Climbing Mechanism</mat-card-title>
+      <mat-card-content>
+        <mat-radio-group aria-label="Do they have a climbing mechanism?">
+          <mat-radio-button value="1">Yes</mat-radio-button>
+          <mat-radio-button value="2">No</mat-radio-button>
+        </mat-radio-group>
+
+        <mat-card>
+          <mat-card-title>Deployment</mat-card-title>
+          <mat-card-content>
+            <mat-form-field>
+              <mat-label>Deployment Type</mat-label>
+              <mat-select>
+                <mat-option *ngFor="let deployment of deployments" [value]="deployment">
+                  {{ deployment }}
+                </mat-option>
+              </mat-select>
+            </mat-form-field>
+            <br />
+            <mat-form-field>
+              <textarea matInput placeholder="Description of Deployment"></textarea>
+            </mat-form-field>
+          </mat-card-content>
+
+          <!-- Insert pictures of deployment mechanism -->
+          <mat-card-actions>
+            <button mat-raised-button color="primary" (click)="onUploadDeploymentPicClick()">
+              <mat-icon>file_upload</mat-icon>
+              Upload Climb Deployment Pictures
+            </button>
+          </mat-card-actions>
         </mat-card>
 
-    </mat-expansion-panel>
+        <mat-card>
+          <mat-card-title>Acquisition</mat-card-title>
+          <mat-card-content>
+            <mat-form-field>
+              <mat-label>Acquisition Type</mat-label>
+              <mat-select>
+                <mat-option *ngFor="let acquisition of acquisitions" [value]="acquisition">
+                  {{ acquisition }}
+                </mat-option>
+              </mat-select>
+            </mat-form-field>
+            <br />
+            <mat-form-field>
+              <textarea matInput placeholder="Description of Acquisition"></textarea>
+            </mat-form-field>
+          </mat-card-content>
+
+          <!-- Insert pictures of acquisition mechanism -->
+          <mat-card-actions>
+            <button mat-raised-button color="primary" (click)="onUploadAcquisitionPicClick()">
+              <mat-icon>file_upload</mat-icon>
+              Upload Climb Acquisition Pictures
+            </button>
+          </mat-card-actions>
+        </mat-card>
+
+        <mat-card>
+          <mat-card-title>Climb & Maintain Climb</mat-card-title>
+          <mat-card-content>
+            <mat-form-field>
+              <mat-label>Climber Type</mat-label>
+              <mat-select>
+                <mat-option *ngFor="let climber of climbers" [value]="climber">
+                  {{ climber }}
+                </mat-option>
+              </mat-select>
+            </mat-form-field>
+            <br />
+            <mat-form-field>
+              <textarea matInput placeholder="Description of Climber"></textarea>
+            </mat-form-field>
+          </mat-card-content>
+
+          <!-- Insert pictures of climber mechanism -->
+          <mat-card-actions>
+            <button mat-raised-button color="primary" (click)="onUploadClimberPicClick()">
+              <mat-icon>file_upload</mat-icon>
+              Upload Climber Pictures
+            </button>
+          </mat-card-actions>
+        </mat-card>
+
+        <mat-card>
+          <mat-card-title>Auto-balancer</mat-card-title>
+          <mat-card-content>
+            <mat-radio-group aria-label="Do they have an auto-balancing mechanism?">
+              <mat-radio-button value="1">Yes</mat-radio-button>
+              <mat-radio-button value="2">No</mat-radio-button>
+            </mat-radio-group>
+            <br />
+            <mat-form-field>
+              <textarea matInput placeholder="Description of auto-balancer"></textarea>
+            </mat-form-field>
+          </mat-card-content>
+
+          <!-- Insert pictures of auto-balancing mechanism -->
+          <mat-card-actions>
+            <button mat-raised-button color="primary" (click)="onUploadAutoBalancerPicClick()">
+              <mat-icon>file_upload</mat-icon>
+              Upload Auto-Balancer Pictures
+            </button>
+          </mat-card-actions>
+        </mat-card>
+
+        <mat-card>
+          <mat-card-title>Buddy Climb</mat-card-title>
+          <mat-card-content>
+            <mat-radio-group aria-label="Do they have an buddy-climb mechanism?">
+              <mat-radio-button value="1">Yes</mat-radio-button>
+              <mat-radio-button value="2">No</mat-radio-button>
+            </mat-radio-group>
+            <br /><br />
+            <label id="single-double-buddy-climb-radio-label">Single / Double Buddy Climb?</label><br />
+            <mat-radio-group aria-labelby="single-multiple-power-cell-radio-label">
+              <mat-radio-button value="1">Single</mat-radio-button>
+              <mat-radio-button value="2">Double</mat-radio-button>
+            </mat-radio-group>
+            <br />
+            <mat-form-field>
+              <textarea matInput placeholder="Description of buddy climb"></textarea>
+            </mat-form-field>
+          </mat-card-content>
+
+          <!-- Insert pictures of buddy climber mechanism -->
+          <mat-card-actions>
+            <button mat-raised-button color="primary" (click)="onUploadBuddyClimbPicClick()">
+              <mat-icon>file_upload</mat-icon>
+              Upload Buddy Climber Pictures
+            </button>
+          </mat-card-actions>
+        </mat-card>
+      </mat-card-content>
+    </mat-card>
+
+    <mat-card>
+      <mat-card-title>Control Panel Interaction Mechanism</mat-card-title>
+      <mat-card-content>
+        <mat-radio-group aria-label="Do they have a control panel mechanism?">
+          <mat-radio-button value="1">Yes</mat-radio-button>
+          <mat-radio-button value="2">No</mat-radio-button>
+        </mat-radio-group>
+      </mat-card-content>
+
+      <mat-card>
+        <mat-card-title>Rotator</mat-card-title>
+        <mat-card-content>
+          <mat-form-field>
+            <input matInput placeholder="Rotation Speed (RPM)" value="" />
+          </mat-form-field>
+          <br />
+          <label id="color-sensor-radio-label">Color Sensor?</label><br />
+          <mat-radio-group aria-labelby="color-sensor-radio-label">
+            <mat-radio-button value="1">Yes</mat-radio-button>
+            <mat-radio-button value="2">No</mat-radio-button>
+          </mat-radio-group>
+          <br />
+          <mat-form-field>
+            <textarea matInput placeholder="Description of rotator"></textarea>
+          </mat-form-field>
+        </mat-card-content>
+
+        <!-- Insert pictures of rotation mechanism -->
+        <mat-card-actions>
+          <button mat-raised-button color="primary" (click)="onUploadRotatorPicClick()">
+            <mat-icon>file_upload</mat-icon>
+            Upload Rotator Pictures
+          </button>
+        </mat-card-actions>
+      </mat-card>
+    </mat-card>
+
+    <mat-card>
+      <mat-card-title>Additional Information</mat-card-title>
+      <mat-card-content>
+        <mat-form-field>
+          <input matInput placeholder="Robot Length (inches)" value="" />
+        </mat-form-field>
+        <mat-form-field>
+          <input matInput placeholder="Robot Width (inches)" value="" />
+        </mat-form-field>
+        <mat-form-field>
+          <input matInput placeholder="Robot Height (inches)" value="" />
+        </mat-form-field>
+      </mat-card-content>
+    </mat-card>
+
+    <button mat-raised-button color="primary" type="submit">Submit</button>
+  </mat-expansion-panel>
 </mat-accordion>
