@@ -11,18 +11,27 @@
 
     <!-- Select Event -->
     <mat-form-field>
-      <mat-label>Event</mat-label>
-      <mat-select>
+      <mat-select
+        placeholder = "Event"
+        [(value)] = "selectedEvent"
+        [formControl] = "eventSelectControl"
+        (selectionChange) = "getTeamsAtEvent()"
+        required>
         <mat-option *ngFor="let event of events" [value]="event">
-          {{ event }}
+          {{ event.eventName }}
         </mat-option>
       </mat-select>
+      <mat-error *ngIf="eventSelectControl.hasError('required')">Please choose an event</mat-error>
     </mat-form-field>
 
     <!-- Select Team Number -->
     <mat-form-field>
-      <mat-label>Team Number</mat-label>
-      <mat-select>
+      <mat-select
+        placeholder = "Team"
+        [(value)] = "selectedTeam"
+        [formControl] = "teamSelectControl"
+        (selectionChange) = "getTeamNameFromTeamID()"
+        required>
         <mat-option *ngFor="let team of teams" [value]="team">
           {{ team }}
         </mat-option>
@@ -31,7 +40,7 @@
 
     <!-- Autopopulate team name once team number is selected -->
     <mat-form-field>
-      <input matInput placeholder="Team Name" value="Dragon Robotics" />
+      <input matInput placeholder="Team Name" [(value)]="teamName" />
     </mat-form-field>
     <br />
 
@@ -157,6 +166,7 @@
           <mat-card-title>Indexer</mat-card-title>
           <mat-card-content>
             <mat-form-field>
+              <mat-label>Indexer Type</mat-label>
               <mat-select>
                 <mat-option *ngFor="let indexer of indexers" [value]="indexer">
                   {{ indexer }}
@@ -187,6 +197,15 @@
         <mat-card>
           <mat-card-title>Shooter</mat-card-title>
           <mat-card-content>
+            <mat-form-field>
+              <mat-label>Shooter Type</mat-label>
+              <mat-select>
+                <mat-option *ngFor="let shooter of shooters" [value]="shooter">
+                  {{ shooter }}
+                </mat-option>
+              </mat-select>
+            </mat-form-field>
+            <br />
             <label id="high-low-goal-radio-label">High / Low Goal?</label><br />
             <mat-radio-group aria-labelby="high-low-both-goal-radio-label">
               <mat-radio-button value="1">High</mat-radio-button>
@@ -198,6 +217,24 @@
             <mat-radio-group aria-labelby="single-multiple-power-cell-radio-label">
               <mat-radio-button value="1">Single</mat-radio-button>
               <mat-radio-button value="2">Multiple</mat-radio-button>
+            </mat-radio-group>
+            <br /><br />
+            <label id="adjustable-angle-radio-label">Adjustable Angle?</label><br />
+            <mat-radio-group aria-labelby="adjustable-angle-radio-label">
+              <mat-radio-button value="1">Yes</mat-radio-button>
+              <mat-radio-button value="2">No</mat-radio-button>
+            </mat-radio-group>
+            <br /><br />
+            <label id="turret-or-stationary-radio-label">Turret or Stationary?</label><br />
+            <mat-radio-group aria-labelby="turret-or-stationary-radio-label">
+              <mat-radio-button value="1">Turret</mat-radio-button>
+              <mat-radio-button value="2">Stationary</mat-radio-button>
+            </mat-radio-group>
+            <br /><br />
+            <label id="auto-aim-radio-label">Auto-Aim?</label><br />
+            <mat-radio-group aria-labelby="auto-aim-radio-label">
+              <mat-radio-button value="1">Manual</mat-radio-button>
+              <mat-radio-button value="2">Automatic w/ vision processing</mat-radio-button>
             </mat-radio-group>
             <br />
             <mat-form-field>
@@ -367,7 +404,7 @@
         <mat-card-title>Rotator</mat-card-title>
         <mat-card-content>
           <mat-form-field>
-            <input matInput placeholder="Rotation Speed (RPM)" value="" />
+            <input matInput placeholder="Rotation Speed (rotations per second)" value="" />
           </mat-form-field>
           <br />
           <label id="color-sensor-radio-label">Color Sensor?</label><br />

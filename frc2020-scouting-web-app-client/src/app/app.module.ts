@@ -30,6 +30,8 @@ import { MatExpansionModule } from '@angular/material/expansion';
 import { PitScoutingFormComponent } from './pit-scouting-form/pit-scouting-form.component';
 import { MatchScoutingFormComponent } from './match-scouting-form/match-scouting-form.component';
 import { StatisticsDashboardComponent } from './statistics-dashboard/statistics-dashboard.component';
+import { HttpClientModule } from "@angular/common/http";
+import { ScoutingDataService } from "./scouting-data.service";
 
 @NgModule({
   declarations: [
@@ -41,11 +43,12 @@ import { StatisticsDashboardComponent } from './statistics-dashboard/statistics-
     NavigationExampleComponent,
     PitScoutingFormComponent,
     MatchScoutingFormComponent,
-    StatisticsDashboardComponent
+    StatisticsDashboardComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
+    HttpClientModule,
     BrowserAnimationsModule,
     MatInputModule,
     MatButtonModule,
@@ -64,9 +67,11 @@ import { StatisticsDashboardComponent } from './statistics-dashboard/statistics-
     MatToolbarModule,
     MatSidenavModule,
     MatListModule,
-    MatExpansionModule
+    MatExpansionModule,
   ],
-  providers: [],
+  providers: [
+    ScoutingDataService,
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

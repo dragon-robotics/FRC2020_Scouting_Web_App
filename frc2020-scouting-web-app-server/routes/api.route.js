@@ -8,7 +8,7 @@ var scoutingData = require('./api/scoutingData.route');
 
 router.use('/scoutingData', scoutingData);
 
-router.get('/teamEventInfo/:eventID', function (req, res) {
+router.get('/getTeamsAtEvent/:eventID', function (req, res) {
     var event = req.params.eventID;
 
     requestPromise({
@@ -29,7 +29,7 @@ router.get('/teamEventInfo/:eventID', function (req, res) {
     });
 });
 
-router.get("/teamMatchEventInfo/:eventID/:teamID", function(req, res) {
+router.get("/getTeamMatchInfo/:eventID/:teamID", function(req, res) {
   var event = req.params.eventID;
   var team = req.params.teamID;
 
@@ -89,7 +89,7 @@ router.get("/teamMatchEventInfo/:eventID/:teamID", function(req, res) {
   });
 });
 
-router.get("/getMatchAndTeamInfo/:eventID/", function(req, res) {
+router.get("/getEventMatchScheduleInfo/:eventID/", function(req, res) {
   var event = req.params.eventID;
 
   requestPromise({
@@ -174,5 +174,20 @@ router.get("/getMatchAndTeamInfo/:eventID/", function(req, res) {
     res.send(matches);
   });
 });
+
+router.get("/getTeamNameFromTeamID/:teamID/", function(req, res){
+  var teamID = req.params.teamID;
+
+  requestPromise({
+    method: 'GET',
+    url: 'https://www.thebluealliance.com/api/v3/team/frc' + teamID,
+    headers: {
+      'X-TBA-Auth-Key': 'dS9knumpOPRZJkI1FvSCSYhdnIj9dk2mfpqPMb50JbCQc9roaG9Hl3oZKTRYYOe0',
+    },
+  })
+  .then(function(result){
+    res.send({teamName: JSON.parse(result).nickname});
+  })
+})
 
 module.exports = router;

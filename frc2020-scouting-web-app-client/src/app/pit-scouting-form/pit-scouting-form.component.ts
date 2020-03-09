@@ -1,5 +1,11 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, Validators } from '@angular/forms';
+import { FormBuilder, Validators, FormControl } from '@angular/forms';
+import { ScoutingDataService } from '../scouting-data.service';
+
+interface Event {
+  eventID: string;
+  eventName: string;
+}
 
 @Component({
   selector: "app-pit-scouting-form",
@@ -7,9 +13,28 @@ import { FormBuilder, Validators } from '@angular/forms';
   styleUrls: ["./pit-scouting-form.component.css"]
 })
 export class PitScoutingFormComponent implements OnInit {
-  events: string[] = ["AZ North", "AZ West", "LA North", "Del Mar"];
+  eventSelectControl = new FormControl("", Validators.required);
+  selectedEvent: Event;
+  events: Event[] = [
+    {
+      eventName: "AZ North",
+      eventID: "2020azfl"
+    },
+    {
+      eventName: "AZ West",
+      eventID: "2020azpx"
+    },
+    {
+      eventName: "Week 0",
+      eventID: "2020week0"
+    }
+  ];
 
-  teams: number[] = [6833, 2375, 842, 1678];
+  teamSelectControl = new FormControl("", Validators.required);
+  selectedTeam: number;
+  teams: number[];
+
+  teamName: string = "";
 
   driveTrains: string[] = [
     "Tank",
@@ -66,6 +91,13 @@ export class PitScoutingFormComponent implements OnInit {
 
   indexers: string[] = ["Spin-dexer", "Conveyor", "Dump Truck", "Others"];
 
+  shooters: string[] = [
+    "Single-sided Wheels w/ Hood",
+    "Single-sided w/ Weighted Flywheel(s) and Hood",
+    "Dual-sided Wheels",
+    "Dual-sided w/ Weighted Flywheel(s)"
+  ];
+
   /* Climber mechanism */
   deployments: string[] = [
     "Elevator",
@@ -86,7 +118,7 @@ export class PitScoutingFormComponent implements OnInit {
 
   climbers: string[] = ["Winch", "Elevator", "Scissor-Lift", "4-bar", "Others"];
 
-  constructor(private fb: FormBuilder) {}
+  constructor(private scoutingDataService: ScoutingDataService) {}
 
   ngOnInit() {}
 
@@ -110,4 +142,22 @@ export class PitScoutingFormComponent implements OnInit {
 
   /* Control Panel Pictures */
   onUploadRotatorPicClick() {}
+
+  /* Get all the teams from the user selected event */
+  getTeamsAtEvent() {
+    let eventID = this.selectedEvent.eventID;
+    this.scoutingDataService.getTeamsAtEvent(eventID)
+      .subscribe(teams =>{
+        this.teams = teams;
+      });
+  }
+
+  getTeamNameFromTeamID(){
+    let teamID = this.selectedTeam;
+    this.scoutingDataService
+      .getTeamNameFromTeamID(teamID)
+      .subscribe(team => {
+        this.teamName = team.teamName;
+      });
+  }
 }
