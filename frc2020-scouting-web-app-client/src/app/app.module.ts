@@ -27,6 +27,7 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatListModule } from '@angular/material/list';
 import { MatExpansionModule } from '@angular/material/expansion';
+import { MatCheckboxModule } from '@angular/material/checkbox';
 import { PitScoutingFormComponent } from './pit-scouting-form/pit-scouting-form.component';
 import { MatchScoutingFormComponent } from './match-scouting-form/match-scouting-form.component';
 import { StatisticsDashboardComponent } from './statistics-dashboard/statistics-dashboard.component';
@@ -43,7 +44,7 @@ import { ScoutingDataService } from "./scouting-data.service";
     NavigationExampleComponent,
     PitScoutingFormComponent,
     MatchScoutingFormComponent,
-    StatisticsDashboardComponent,
+    StatisticsDashboardComponent
   ],
   imports: [
     BrowserModule,
@@ -68,10 +69,9 @@ import { ScoutingDataService } from "./scouting-data.service";
     MatSidenavModule,
     MatListModule,
     MatExpansionModule,
+    MatCheckboxModule
   ],
-  providers: [
-    ScoutingDataService,
-  ],
+  providers: [ScoutingDataService],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {}
