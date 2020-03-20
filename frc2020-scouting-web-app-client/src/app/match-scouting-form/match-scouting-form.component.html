@@ -49,6 +49,21 @@
                 Insert Autonomous Scouting Information 
             </mat-panel-description>
         </mat-expansion-panel-header>
+
+        <!-- Select Number of Balls Scored in Auto-->
+        <mat-form-field>
+            <mat-label>Number of Balls Scored</mat-label>
+            <mat-select>
+                <mat-option *ngFor= "let ball of balls" [value]="ball">
+                    {{ball}}
+                </mat-option>
+            </mat-select>
+        </mat-form-field>
+
+        <!-- Text Description of Auto -->
+        <mat-form-field>
+            <textarea matInput placeholder = "Description of Auto"></textarea>
+        </mat-form-field>
     </mat-expansion-panel>
     
     <mat-expansion-panel expanded="true">
@@ -60,5 +75,56 @@
                 Insert Tele-Op Information 
             </mat-panel-description>
         </mat-expansion-panel-header>
+
+        <!-- Offense -->
+        <mat-card>
+            <mat-card-title>Offense</mat-card-title>
+            <br />
+            <mat-card-content>
+                <!-- Cycles -->
+                <mat-card>
+                    <mat-card-title>Cycles</mat-card-title>
+                    <br />
+                </mat-card>
+
+                <!-- Control Panel -->
+                <mat-card>
+                    <mat-card-title>Control Panel</mat-card-title>
+                    <mat-checkbox>Stage 1 Complete</mat-checkbox>
+                    <br />
+                    <mat-checkbox>Stage 2 Complete</mat-checkbox>
+                    <br />
+                </mat-card>
+
+                <!-- Climb -->
+                <mat-card>
+                    <mat-card-title>Climb</mat-card-title>
+                    <mat-form-field>
+                        <mat-label>Climb Type</mat-label>
+                        <mat-select>
+                            <mat-option *ngFor="let climb of climbs" [value]="climb">
+                                {{climb}}
+                            </mat-option>
+                        </mat-select>
+                    </mat-form-field>
+                </mat-card>
+
+                <!-- Balance -->
+                <mat-card>
+                    <mat-card-title>Balance</mat-card-title>
+                    <label id = "balance-radio-label">Balanced?</label><br />
+                    <mat-radio-group aria-labelby="balance-radio-label">
+                        <mat-radio-button value = "1">Yes</mat-radio-button>
+                        <mat-radio-button value = "2">No</mat-radio-button>
+                    </mat-radio-group>
+                    <br />
+                </mat-card>
+            </mat-card-content>
+        </mat-card>
+        
+        <!-- Defense -->
+        <mat-card>
+            <mat-card-title>Defense</mat-card-title>
+        </mat-card>
     </mat-expansion-panel>
 </mat-accordion>
