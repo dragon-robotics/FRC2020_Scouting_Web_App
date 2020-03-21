@@ -33,6 +33,7 @@ import { MatchScoutingFormComponent } from './match-scouting-form/match-scouting
 import { StatisticsDashboardComponent } from './statistics-dashboard/statistics-dashboard.component';
 import { HttpClientModule } from "@angular/common/http";
 import { ScoutingDataService } from "./scouting-data.service";
+import { MatCheckboxModule } from "@angular/material/checkbox";
 
 @NgModule({
   declarations: [

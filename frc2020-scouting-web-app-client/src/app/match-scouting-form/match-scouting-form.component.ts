@@ -18,7 +18,7 @@ export class MatchScoutingFormComponent implements OnInit {
     6833,
     2375,
     842,
-    1678
+    1678,
   ];
   
   matches: number[] = [
@@ -26,6 +26,24 @@ export class MatchScoutingFormComponent implements OnInit {
     2,
     3,
   ];
+
+  balls: string[] = [
+    "1",
+    "2",
+    "3",
+    "4",
+    "5",
+    "6",
+    "7",
+    "8+",
+  ];
+
+  climbs: string[] = [
+    "No Climb",
+    "Self Climb",
+    "Buddy Climb (w/ 1)",
+    "Buddy Climb (w/ 2)",
+  ]
 
   constructor() { }
 
