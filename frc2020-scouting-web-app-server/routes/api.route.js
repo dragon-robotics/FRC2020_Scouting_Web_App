@@ -25,7 +25,7 @@ router.get('/getTeamsAtEvent/:eventID', function (req, res) {
             })
             .sortBy()
             .value();
-        res.send(teams);
+      res.send(teams);
     });
 });
 
